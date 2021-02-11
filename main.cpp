@@ -1,7 +1,21 @@
 #include "algorithmHeaders.h"
+/*
+    All function signatures and necessary libraries
+    in the header file algorithmHeaders.h
+*/
 
+
+/*
+    variable: resultantVector is the only vector
+    used for the entire program.
+*/
 vector<int> resultantVector;
 
+/*
+    The helper function helps to    
+    print the result for the search index
+    from Liner Search and Binary Search.
+*/
 void result(int index)
 {
     if(index==-1)
@@ -9,6 +23,15 @@ void result(int index)
     else
         cout<<"Found in index "<<index<<endl;
 }
+
+/*
+    The helper function helps 
+    to take the input for the key
+    to be searched in the vector 
+    using either the Linear Search or 
+    Binary Search algorithm.
+*/
+
 
 int keyInput()
 {
@@ -18,6 +41,9 @@ int keyInput()
     return key;
 }
 
+//main function begins
+
+
 int main()
 {
     cout<<"Welcome! This program implements and tests three sorting algorithms on vector of integers."<<endl;
@@ -26,30 +52,29 @@ int main()
     {
         cout<<"Enter command (generate, selection, rselection, bubble, rbubble, insertion, rinsertion, lin_search, bin_search, quit): ";
         cin>>command;
-        if(command=="quit")
+        if(command=="quit")                              //Case for quitting the program
         {
             cout<<"Program is terminated"<<endl;
             break;
         }
-        else if(command=="generate")
+        else if(command=="generate")                      //Case for generating the vector
         {
-            int vectorLength=0,minValue=0,maxValue=0;
-            cout<<"Vector Length : ";
+            int vectorLength=0,minValue=0,maxValue=0;     //Takes the necessary input from the user 
+            cout<<"Vector Length : ";                     //input: vectorLength, minValue and maxValue(range for the random number generation)
             cin>>vectorLength;
             cout<<"Minimum Value : ";
             cin>>minValue;
             cout<<"Maximum Value : ";
             cin>>maxValue;
-            //vector<int> resultantVector(vectorLength);
             resultantVector=generateVector(vectorLength,minValue,maxValue);
             printVector(resultantVector);
         }
-        else if(command=="selection")
+        else if(command=="selection")                     //Case for iterative Selection Sort
         {
             selectionSort(resultantVector);
             printVector(resultantVector);
         }
-        else if(command=="rselection")
+        else if(command=="rselection")                    ////Case for Recursive Selection Sort
         {
             rselectionSort(resultantVector,0);
             printVector(resultantVector);
@@ -86,7 +111,7 @@ int main()
             rinsertionSort(resultantVector,resultantVector.size());
             printVector(resultantVector);
         }
-        else
+        else                                                   //Case for handling wrong input from the user apart from the designated ones
         {
             cout<<"Please enter a valid command "<<endl;
         }
