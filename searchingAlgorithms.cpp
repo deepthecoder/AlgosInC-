@@ -6,6 +6,11 @@
    assumption: Vector is already sorted
    return    : index of the searched item in the vector
 */
+
+/*
+   Binary Search follows a divide and conquer approach 
+   and focuses on only one single half of the same.
+*/
 int binarySearch(vector<int> &L,int key)
 {
    int index=-1;
